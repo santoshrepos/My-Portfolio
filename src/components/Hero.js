@@ -130,7 +130,7 @@ const Hero = () => {
               <Button
                 variant="outlined"
                 href={resume}
-                download="Santosh_Resume"
+                download="Santosh_Patra_Resume"
                 sx={styles.button}
               >
                 Download CV
