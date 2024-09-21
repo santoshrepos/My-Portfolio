@@ -1,6 +1,7 @@
-import React from 'react';
-import { Box, Typography, Button, Grid, useTheme } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { Box, Typography, Button, Grid, useTheme, IconButton } from '@mui/material';
 import { ReactTyped as Typed } from 'react-typed';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import backGroundDark from '../assets/img/hero-bg-dark.jpg';
 import backGroundLight from '../assets/img/hero-bg-light2.jpg';
 import resume from '../assets/resume/ResumeNew.pdf';
@@ -8,6 +9,22 @@ import resume from '../assets/resume/ResumeNew.pdf';
 const Hero = () => {
   const theme = useTheme();
   const backgroundImage = theme.palette.mode === 'dark' ? backGroundDark : backGroundLight;
+  const [showScrollButton, setShowScrollButton] = useState(true);
+
+  const handleScroll = () => {
+    if (window.scrollY > 100) {
+      setShowScrollButton(false);
+    } else {
+      setShowScrollButton(true);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const styles = {
     hero: {
@@ -15,36 +32,39 @@ const Hero = () => {
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-      height: '100%',
+      height: '100vh', // Full viewport height
       width: '100%',
       backgroundImage: `url(${backgroundImage})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      textAlign: 'left', // Left align text
+      textAlign: 'center', // Center align text
       padding: '2rem', // Add padding for better alignment
+      position: 'relative', // For positioning the scroll button
     },
     content: {
       display: 'flex',
       flexDirection: 'column',
-      alignItems: 'flex-start', // Align items to the left
+      alignItems: 'center', // Center align items
     },
     title: {
       color: theme.palette.text.primary,
-      fontSize: '30px',
-      marginBottom: 2,
+      fontSize: '3rem', // Increased font size
+      fontWeight: 'bold', // Make text bold
+      marginBottom: '1rem', // Consistent spacing
     },
     name: {
-      fontSize: '48px',
+      fontSize: '4rem', // Increased font size
+      fontWeight: 'bold', // Make text bold
       color: theme.palette.primary.main,
     },
     typedText: {
-      marginBottom: 4,
-      fontSize: '24px',
+      marginBottom: '2rem', // Consistent spacing
+      fontSize: '1.5rem', // Consistent font size
       color: theme.palette.text.secondary,
     },
     button: {
       padding: '12px 24px',
-      fontSize: '16px',
+      fontSize: '1rem', // Consistent font size
     },
     contactButton: {
       backgroundColor: theme.palette.secondary.main,
@@ -52,19 +72,44 @@ const Hero = () => {
     },
     buttonContainer: {
       display: 'flex',
-      justifyContent: 'flex-start', // Align buttons to the left
+      justifyContent: 'center', // Center align buttons
       width: '100%',
-      marginTop: '2rem', // Add margin for spacing
+      marginTop: '2rem', // Consistent spacing
+    },
+    scrollButton: {
+      position: 'absolute',
+      bottom: '20px',
+      left: '50%',
+      transform: 'translateX(-50%)',
+      animation: 'bounce 2s infinite',
+      transition: 'opacity 0.5s, background-color 0.3s',
+      opacity: showScrollButton ? 1 : 0,
+      backgroundColor: theme.palette.primary.main,
+      color: theme.palette.primary.contrastText,
+      '&:hover': {
+        backgroundColor: theme.palette.primary.dark,
+      },
+    },
+    '@keyframes bounce': {
+      '0%, 20%, 50%, 80%, 100%': {
+        transform: 'translateY(0)',
+      },
+      '40%': {
+        transform: 'translateY(-10px)',
+      },
+      '60%': {
+        transform: 'translateY(-5px)',
+      },
     },
   };
 
   return (
     <Box id="hero" sx={styles.hero}>
       <Box sx={styles.content}>
-        <Typography variant="h3" sx={styles.title}>
+        <Typography variant="h2" sx={styles.title}>
           Hi! 👋🏼
         </Typography>
-        <Typography variant="h3" sx={styles.title}>
+        <Typography variant="h2" sx={styles.title}>
           I'm <span style={styles.name}>Santosh Patra</span>
         </Typography>
         <Typography variant="body1" sx={styles.typedText}>
@@ -80,7 +125,7 @@ const Hero = () => {
           />
         </Typography>
         <Box sx={styles.buttonContainer}>
-          <Grid container spacing={2} justifyContent="flex-start"> {/* Align buttons to the left */}
+          <Grid container spacing={2} justifyContent="center"> {/* Center align buttons */}
             <Grid item>
               <Button
                 variant="outlined"
@@ -99,6 +144,9 @@ const Hero = () => {
           </Grid>
         </Box>
       </Box>
+      <IconButton sx={styles.scrollButton} onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}>
+        <ArrowDownwardIcon />
+      </IconButton>
     </Box>
   );
 };

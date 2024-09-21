@@ -1,75 +1,89 @@
-import React from 'react';
-import { Box, Typography, Grid } from '@mui/material';
+import React from "react";
+import { Box, Typography, Grid, useTheme } from "@mui/material";
 
-const styles = {
-  container: {
-    padding: '2rem',
-    backgroundColor: '#f9f9f9',
-    borderRadius: '8px',
-    boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+const contactInfo = {
+  location: {
+    icon: "bi bi-geo-alt",
+    title: "Location",
+    text: "Bengaluru, India",
   },
-  title: {
-    marginBottom: '1rem',
-    fontWeight: 'bold',
-    color: '#333',
-    textAlign: 'center',
+  email: {
+    icon: "bi bi-envelope",
+    title: "Email",
+    text: "santoshkumarwebac96@gmail.com",
   },
-  info: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '0.5rem',
-  },
-  infoBox: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '1rem',
-    padding: '1rem',
-    backgroundColor: '#fff',
-    borderRadius: '8px',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-  },
-  icon: {
-    fontSize: '2rem',
-    color: '#ff5722',
-  },
-  infoTitle: {
-    fontWeight: 'bold',
-    color: '#333',
-  },
-  infoText: {
-    color: '#666',
+  phone: {
+    icon: "bi bi-phone",
+    title: "Call",
+    text: "+91 7978753377",
   },
 };
 
 const Contact = () => {
+  const theme = useTheme();
+
+  const styles = {
+    container: {
+      padding: "2rem",
+      backgroundColor: theme.palette.background.default,
+    },
+    title: {
+      marginBottom: "1rem",
+      fontWeight: "bold",
+      color: theme.palette.text.primary,
+      textAlign: "center",
+    },
+    info: {
+      display: "flex",
+      justifyContent: "center",
+      gap: "2rem",
+    },
+    infoBox: {
+      display: "flex",
+      alignItems: "center",
+      gap: "1rem",
+      padding: "1rem",
+      backgroundColor: theme.palette.background.paper,
+      borderRadius: "8px",
+      boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+      width: "100%",
+      maxWidth: "300px",
+    },
+    icon: {
+      fontSize: "2rem",
+      color: theme.palette.secondary.main,
+    },
+    infoTitle: {
+      fontWeight: "bold",
+      color: theme.palette.text.primary,
+    },
+    infoText: {
+      color: theme.palette.text.secondary,
+    },
+  };
+
   return (
     <section id="contact" className="contact section-bg">
       <Box className="container" sx={styles.container}>
-        <Typography variant="h2" sx={styles.title}>Contact</Typography>
-        <Grid container spacing={2}>
+        <Typography variant="h2" sx={styles.title}>
+          Contact
+        </Typography>
+        <Grid container justifyContent="center">
           <Grid item xs={12}>
             <Box className="info" sx={styles.info}>
-              <Box className="address" sx={styles.infoBox}>
-                <i className="bi bi-geo-alt" style={styles.icon}></i>
-                <Box>
-                  <Typography variant="h6" sx={styles.infoTitle}>Location:</Typography>
-                  <Typography variant="body1" sx={styles.infoText}>Bengaluru, India</Typography>
+              {Object.keys(contactInfo).map((key) => (
+                <Box key={key} className={key} sx={styles.infoBox}>
+                  <Box sx={{ textAlign: "center", width: "100%" }}>
+                    <i className={contactInfo[key].icon} style={styles.icon}></i>
+                    <Typography variant="h6" sx={styles.infoTitle}>
+                      {contactInfo[key].title}
+                    </Typography>
+                    <Typography variant="body1" sx={styles.infoText}>
+                      {contactInfo[key].text}
+                    </Typography>
+                  </Box>
                 </Box>
-              </Box>
-              <Box className="email" sx={styles.infoBox}>
-                <i className="bi bi-envelope" style={styles.icon}></i>
-                <Box>
-                  <Typography variant="h6" sx={styles.infoTitle}>Email:</Typography>
-                  <Typography variant="body1" sx={styles.infoText}>santoshkumarp1996@gmail.com</Typography>
-                </Box>
-              </Box>
-              <Box className="phone" sx={styles.infoBox}>
-                <i className="bi bi-phone" style={styles.icon}></i>
-                <Box>
-                  <Typography variant="h6" sx={styles.infoTitle}>Call:</Typography>
-                  <Typography variant="body1" sx={styles.infoText}>+91 7978753377</Typography>
-                </Box>
-              </Box>
+              ))}
             </Box>
           </Grid>
         </Grid>
