@@ -1,0 +1,30 @@
+{
+    "description": "A Frontend Web Developer, well-versed in React and boasting over 6 years of experience",
+    "listItems": [
+      "6 years of IT experience in Web development.",
+      "Specialized in React.js, Redux and JavaScript for product deliverables.",
+      "Proficient in utilising SCSS/CSS to create well-organized and maintainable stylesheets.",
+      "Extensive experience in developing web pages using HTML5, CSS3, JavaScript, React Js, Redux, Node.js",
+      "Proven expertise in production and testing support. Expertise in coordinating with offshore and onsite teams."
+    ],
+    "counts": [
+      {
+        "icon": "bi bi-emoji-smile",
+        "count": 5,
+        "label": "Years of Experience",
+        "description": "Web Development"
+      },
+      {
+        "icon": "bi bi-journal-richtext",
+        "count": 10,
+        "label": "Projects Delivered",
+        "description": ""
+      },
+      {
+        "icon": "bi bi-headset",
+        "count": 6,
+        "label": "Satisfied Clients",
+        "description": ""
+      }
+    ]
+  }

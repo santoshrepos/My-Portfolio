@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+import React from 'react';
+import Sidebar from './components/Sidebar';
+import Hero from './components/Hero';
+import About from './components/About';
+import Skills from './components/Skills';
+import Project from './components/Project';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 import './App.css';
+import { Box } from '@mui/material';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box sx={{ display: 'flex', height: '100vh', width: '100vw' }}>
+      <Sidebar />
+      <Box sx={{ flexGrow: 1, marginLeft: '250px', overflowY: 'auto' }}>
+        <Hero />
+        <main id="main" style={{ flexGrow: 1 }}>
+          <About />
+          <Skills />
+          <Project />
+          <Contact />
+        </main>
+        <Footer />
+      </Box>
+    </Box>
   );
 }
 
