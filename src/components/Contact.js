@@ -17,7 +17,7 @@ const styles = {
   info: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '1.5rem',
+    gap: '0.5rem',
   },
   infoBox: {
     display: 'flex',
@@ -52,21 +52,21 @@ const Contact = () => {
               <Box className="address" sx={styles.infoBox}>
                 <i className="bi bi-geo-alt" style={styles.icon}></i>
                 <Box>
-                  <Typography variant="h4" sx={styles.infoTitle}>Location:</Typography>
+                  <Typography variant="h6" sx={styles.infoTitle}>Location:</Typography>
                   <Typography variant="body1" sx={styles.infoText}>Bengaluru, India</Typography>
                 </Box>
               </Box>
               <Box className="email" sx={styles.infoBox}>
                 <i className="bi bi-envelope" style={styles.icon}></i>
                 <Box>
-                  <Typography variant="h4" sx={styles.infoTitle}>Email:</Typography>
+                  <Typography variant="h6" sx={styles.infoTitle}>Email:</Typography>
                   <Typography variant="body1" sx={styles.infoText}>santoshkumarp1996@gmail.com</Typography>
                 </Box>
               </Box>
               <Box className="phone" sx={styles.infoBox}>
                 <i className="bi bi-phone" style={styles.icon}></i>
                 <Box>
-                  <Typography variant="h4" sx={styles.infoTitle}>Call:</Typography>
+                  <Typography variant="h6" sx={styles.infoTitle}>Call:</Typography>
                   <Typography variant="body1" sx={styles.infoText}>+91 7978753377</Typography>
                 </Box>
               </Box>
