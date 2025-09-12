@@ -102,7 +102,7 @@ const Skills = () => {
           color: theme.palette.primary.contrastText,
           '&:hover': { backgroundColor: theme.palette.primary.dark }
         }} onClick={() => {
-          const nextSection = document.getElementById('portfolio');
+          const nextSection = document.getElementById('contact');
           if (nextSection) {
             nextSection.scrollIntoView({ behavior: 'smooth' });
           }

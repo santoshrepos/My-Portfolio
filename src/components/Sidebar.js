@@ -5,13 +5,13 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
+// import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import ContactMailOutlinedIcon from '@mui/icons-material/ContactMailOutlined';
 import ProfilePic from '../assets/img/profile-img1.jpg';
 
 const listItems = [
   { href: '#about', icon: <PersonOutlineIcon />, text: 'About' },
-  { href: '#portfolio', icon: <WorkOutlineIcon />, text: 'Projects' },
+  // { href: '#portfolio', icon: <WorkOutlineIcon />, text: 'Projects' },
   { href: '#contact', icon: <ContactMailOutlinedIcon />, text: 'Contact' },
 ];
 
