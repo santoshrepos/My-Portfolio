@@ -1,5 +1,7 @@
 import React from 'react';
 import { Box, Typography, Grid, useTheme } from '@mui/material';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import { IconButton } from '@mui/material';
 
 const aboutData = {
   subtitle: "A results-driven web developer skilled in building and managing websites and web applications that contribute to the overall success of the product.",
@@ -31,6 +33,10 @@ const About = () => {
       padding: '2rem',
       backgroundColor: theme.palette.background.default,
       borderRadius: '8px',
+      minHeight: '100vh', // Take full viewport height
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center', // Center vertically
     },
     title: {
       marginBottom: '1rem',
@@ -69,7 +75,7 @@ const About = () => {
 
   return (
     <section id="about" className="facts">
-      <Box className="container" sx={styles.container}>
+      <Box className="container" sx={{ ...styles.container, position: 'relative' }}>
         <Typography variant="h2" sx={styles.title}>About Me</Typography>
         <Typography variant="body1" sx={styles.subtitle}>
           {aboutData.subtitle}
@@ -89,6 +95,23 @@ const About = () => {
             </Grid>
           ))}
         </Grid>
+        <IconButton sx={{
+          position: 'absolute',
+          bottom: '20px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          animation: 'bounce 2s infinite',
+          backgroundColor: theme.palette.primary.main,
+          color: theme.palette.primary.contrastText,
+          '&:hover': { backgroundColor: theme.palette.primary.dark }
+        }} onClick={() => {
+          const nextSection = document.getElementById('skills');
+          if (nextSection) {
+            nextSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        }}>
+          <ArrowDownwardIcon />
+        </IconButton>
       </Box>
     </section>
   );

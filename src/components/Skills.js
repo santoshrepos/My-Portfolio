@@ -1,5 +1,7 @@
 import React from 'react';
 import { Box, Typography, CircularProgress, Grid, useTheme } from '@mui/material';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import { IconButton } from '@mui/material';
 
 const skills = [
   { name: 'JavaScript', value: 80 },
@@ -7,6 +9,8 @@ const skills = [
   { name: 'HTML', value: 80 },
   { name: 'CSS', value: 80 },
   { name: 'Nodejs', value: 75 },
+  { name: 'TypeScript', value: 60 },
+  { name: 'MongoDB', value: 60 },
   { name: 'Core Java', value: 50 },
   { name: 'Django', value: 50 },
 ];
@@ -29,6 +33,10 @@ const Skills = () => {
       padding: '2rem',
       backgroundColor: theme.palette.background.default,
       borderRadius: '8px',
+      minHeight: '100vh', // Take full viewport height
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center', // Center vertically
     },
     title: {
       marginBottom: '1rem',
@@ -61,7 +69,7 @@ const Skills = () => {
 
   return (
     <section id="skills" className="skills section-bg">
-      <Box className="container" sx={styles.container}>
+      <Box className="container" sx={{ ...styles.container, position: 'relative' }}>
         <Typography variant="h2" sx={styles.title}>Skills</Typography>
         <Grid container spacing={2}>
           {skills.map((skill, index) => (
@@ -84,6 +92,23 @@ const Skills = () => {
             </Grid>
           ))}
         </Grid>
+        <IconButton sx={{
+          position: 'absolute',
+          bottom: '20px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          animation: 'bounce 2s infinite',
+          backgroundColor: theme.palette.primary.main,
+          color: theme.palette.primary.contrastText,
+          '&:hover': { backgroundColor: theme.palette.primary.dark }
+        }} onClick={() => {
+          const nextSection = document.getElementById('portfolio');
+          if (nextSection) {
+            nextSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        }}>
+          <ArrowDownwardIcon />
+        </IconButton>
       </Box>
     </section>
   );

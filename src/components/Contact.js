@@ -1,5 +1,7 @@
 import React from "react";
-import { Box, Typography, Grid, useTheme } from "@mui/material";
+import { Box, Typography, Grid, useTheme, IconButton } from "@mui/material";
+import Footer from './Footer'; // Import Footer
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward'; // Import ArrowUpwardIcon
 
 const contactInfo = {
   location: {
@@ -23,9 +25,20 @@ const Contact = () => {
   const theme = useTheme();
 
   const styles = {
+    wrapper: {
+      minHeight: "100vh",
+      display: "flex",
+      flexDirection: "column",
+      backgroundColor: theme.palette.background.default,
+    },
     container: {
       padding: "2rem",
-      backgroundColor: theme.palette.background.default,
+      flexGrow: 1,
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center", // Center horizontally
+      position: "relative",
     },
     title: {
       marginBottom: "1rem",
@@ -60,33 +73,59 @@ const Contact = () => {
     infoText: {
       color: theme.palette.text.secondary,
     },
+    scrollUpButtonBox: {
+      display: "flex",
+      justifyContent: "center",
+      marginTop: "auto", // Push button to bottom of content
+      marginBottom: "1rem",
+      width: "100%",
+    },
+    scrollUpButton: {
+      animation: 'bounce 2s infinite',
+      backgroundColor: theme.palette.primary.main,
+      color: theme.palette.primary.contrastText,
+      '&:hover': { backgroundColor: theme.palette.primary.dark },
+    },
   };
 
   return (
     <section id="contact" className="contact section-bg">
-      <Box className="container" sx={styles.container}>
-        <Typography variant="h2" sx={styles.title}>
-          Contact
-        </Typography>
-        <Grid container justifyContent="center">
-          <Grid item xs={12}>
-            <Box className="info" sx={styles.info}>
-              {Object.keys(contactInfo).map((key) => (
-                <Box key={key} className={key} sx={styles.infoBox}>
-                  <Box sx={{ textAlign: "center", width: "100%" }}>
-                    <i className={contactInfo[key].icon} style={styles.icon}></i>
-                    <Typography variant="h6" sx={styles.infoTitle}>
-                      {contactInfo[key].title}
-                    </Typography>
-                    <Typography variant="body1" sx={styles.infoText}>
-                      {contactInfo[key].text}
-                    </Typography>
+      <Box sx={styles.wrapper}>
+        <Box className="container" sx={styles.container}>
+          <Typography variant="h2" sx={styles.title}>
+            Contact
+          </Typography>
+          <Grid container justifyContent="center">
+            <Grid item xs={12}>
+              <Box className="info" sx={styles.info}>
+                {Object.keys(contactInfo).map((key) => (
+                  <Box key={key} className={key} sx={styles.infoBox}>
+                    <Box sx={{ textAlign: "center", width: "100%" }}>
+                      <i className={contactInfo[key].icon} style={styles.icon}></i>
+                      <Typography variant="h6" sx={styles.infoTitle}>
+                        {contactInfo[key].title}
+                      </Typography>
+                      <Typography variant="body1" sx={styles.infoText}>
+                        {contactInfo[key].text}
+                      </Typography>
+                    </Box>
                   </Box>
-                </Box>
-              ))}
-            </Box>
+                ))}
+              </Box>
+            </Grid>
           </Grid>
-        </Grid>
+          <Box sx={styles.scrollUpButtonBox}>
+            <IconButton sx={styles.scrollUpButton} onClick={() => {
+              const heroSection = document.getElementById('hero');
+              if (heroSection) {
+                heroSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}>
+              <ArrowUpwardIcon />
+            </IconButton>
+          </Box>
+        </Box>
+        <Footer />
       </Box>
     </section>
   );

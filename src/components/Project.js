@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Typography, Grid, Card, CardMedia, CardActions, IconButton, useTheme } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import LinkIcon from '@mui/icons-material/Link';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 const projects = [
   { img: 'assets/img/portfolio/portfolio-1.jpg', title: 'App 1', link: 'portfolio-details.html' },
@@ -16,6 +17,11 @@ const Project = () => {
     container: {
       padding: '2rem',
       backgroundColor: theme.palette.background.default,
+      minHeight: '100vh', // Take full viewport height
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center', // Center vertically
+      position: 'relative', // Added for the new button
     },
     title: {
       marginBottom: '1rem',
@@ -37,6 +43,16 @@ const Project = () => {
     },
     iconButton: {
       color: theme.palette.secondary.main,
+    },
+    scrollButton: {
+      position: 'absolute',
+      bottom: '20px',
+      left: '50%',
+      transform: 'translateX(-50%)',
+      animation: 'bounce 2s infinite',
+      backgroundColor: theme.palette.primary.main,
+      color: theme.palette.primary.contrastText,
+      '&:hover': { backgroundColor: theme.palette.primary.dark },
     },
   };
 
@@ -61,6 +77,14 @@ const Project = () => {
             </Grid>
           ))}
         </Grid>
+        <IconButton sx={styles.scrollButton} onClick={() => {
+          const nextSection = document.getElementById('contact');
+          if (nextSection) {
+            nextSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        }}>
+          <ArrowDownwardIcon />
+        </IconButton>
       </Box>
     </section>
   );

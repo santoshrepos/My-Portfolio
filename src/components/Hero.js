@@ -144,7 +144,12 @@ const Hero = () => {
           </Grid>
         </Box>
       </Box>
-      <IconButton sx={styles.scrollButton} onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}>
+      <IconButton sx={styles.scrollButton} onClick={() => {
+        const nextSection = document.getElementById('about');
+        if (nextSection) {
+          nextSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }}>
         <ArrowDownwardIcon />
       </IconButton>
     </Box>
