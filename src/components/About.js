@@ -105,7 +105,7 @@ const About = () => {
           color: theme.palette.primary.contrastText,
           '&:hover': { backgroundColor: theme.palette.primary.dark }
         }} onClick={() => {
-          const nextSection = document.getElementById('skills');
+          const nextSection = document.getElementById('portfolio');
           if (nextSection) {
             nextSection.scrollIntoView({ behavior: 'smooth' });
           }

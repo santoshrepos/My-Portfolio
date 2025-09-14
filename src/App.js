@@ -6,7 +6,6 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
 import Project from './components/Project';
-import Contact from './components/Contact';
 import { lightTheme, darkTheme } from './theme';
 import './App.css';
 
@@ -31,9 +30,8 @@ function App() {
           <Hero />
           <main id="main" style={{ flexGrow: 1 }}>
             <About />
-            <Skills />
             <Project />
-            <Contact />
+            <Skills />
           </main>
         </Box>
       </Box>

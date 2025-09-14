@@ -137,7 +137,7 @@ const Hero = () => {
               </Button>
             </Grid>
             <Grid item>
-              <Button variant="outlined" href="#contact" sx={{ ...styles.button, ...styles.contactButton }}>
+              <Button variant="outlined" href="#skills" sx={{ ...styles.button, ...styles.contactButton }}>
                 Contact
               </Button>
             </Grid>

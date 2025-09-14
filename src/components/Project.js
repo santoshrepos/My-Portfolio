@@ -96,7 +96,7 @@ const Project = () => {
           </CardActions>
         </Card>
         <IconButton sx={styles.scrollButton} onClick={() => {
-          const nextSection = document.getElementById('contact');
+          const nextSection = document.getElementById('skills');
           if (nextSection) {
             nextSection.scrollIntoView({ behavior: 'smooth' });
           }

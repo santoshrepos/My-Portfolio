@@ -12,7 +12,7 @@ import ProfilePic from '../assets/img/profile-img1.jpg';
 const listItems = [
   { href: '#about', icon: <PersonOutlineIcon />, text: 'About' },
   { href: '#portfolio', icon: <WorkOutlineIcon />, text: 'Projects' },
-  { href: '#contact', icon: <ContactMailOutlinedIcon />, text: 'Contact' },
+  { href: '#skills', icon: <ContactMailOutlinedIcon />, text: 'Skills & Contact' },
 ];
 
 const useStyles = (isOpen, theme) => ({
