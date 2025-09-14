@@ -4,11 +4,12 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import { IconButton } from '@mui/material';
 
 const aboutData = {
-  subtitle: "A results-driven web developer skilled in building and managing websites and web applications that contribute to the overall success of the product.",
-  description: "I am a Senior Frontend Developer with 6 years of experience in web development, specializing in React.js, Redux, and JavaScript to deliver high-quality product solutions. I have extensive expertise in building and managing front-end components of websites and web applications, contributing to the overall success of products. With a strong command of SCSS/CSS for creating maintainable stylesheets and hands-on experience in HTML5, CSS3, JavaScript, React.js, and Node.js, I ensure seamless, scalable, and user-friendly interfaces. I have a proven track record in production and testing support, collaborating effectively with both offshore and onsite teams to drive project success.",
+  subtitle: "MERN Stack Specialist | React.js | Node.js | JavaScript | HTML5 | CSS3 | MongoDB | Unit Testing | Core Java | MySQL | Building Scalable, User-Centric Web Apps",
+  description:
+    "Graduated with a B.Tech in Computer Science from IIIT Bhubaneswar, I am a Senior Front-End Engineer at ConnectWise, passionate about crafting seamless, scalable, and high-performance web applications. My expertise spans the full MERN stack—React.js, Node.js, Express, MongoDB—alongside advanced skills in JavaScript, HTML5, CSS3, Redux, and robust unit testing. I have hands-on experience with Core Java and MySQL, enabling me to deliver end-to-end solutions and optimize both frontend and backend workflows. At ConnectWise, I drive innovation by implementing modern React architecture, optimizing APIs, and collaborating with backend teams for system migrations. I thrive on delivering pixel-perfect UIs, improving user experience, and empowering teams with efficient, maintainable code. Always eager to learn and adapt, I bring a fresh, results-driven perspective to every project.",
   counts: [
     {
-      count: "6 +",
+      count: "7",
       label: "Years of Experience",
       description: "Web Development"
     },

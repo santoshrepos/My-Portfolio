@@ -6,8 +6,9 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 const project = {
   title: 'ConnectDevs',
   link: 'http://13.232.103.117/',
-  tech: 'React.js, Node.js, Express, MongoDB, AWS EC2, Nginx, PM2',
-  description: 'A modern developer community platform built with a robust MERN stack, deployed on AWS EC2 with Nginx and PM2 for production reliability.',
+  tech: 'Fullstack MERN App | React.js · Node.js · Express · MongoDB · AWS EC2 · Nginx · PM2',
+  description:
+    'ConnectDevs is a modern developer community platform where users can sign up, log in, send and manage connection requests, and build their network. Designed and developed end-to-end with a robust MERN stack, featuring seamless authentication, real-time interactions, and scalable cloud deployment. Built to showcase my frontend and fullstack expertise.',
   gif: require('../assets/video/ConnectsDevDemo.gif'), // Use require for local GIF
   backup: require('../assets/img/connectDev.png'), // Backup image if GIF fails
 };
@@ -26,7 +27,7 @@ const Project = () => {
       position: 'relative',
     },
     card: {
-      maxWidth: 600,
+      maxWidth: 480,
       margin: 'auto',
       boxShadow: '0 8px 24px rgba(0,0,0,0.15)',
       borderRadius: '16px',
@@ -41,8 +42,8 @@ const Project = () => {
       height: 'auto', // Ensure GIF height is auto for animation
       display: 'block',
       borderRadius: '16px 16px 0 0',
-      marginBottom: '1rem',
-      maxHeight: 320,
+      marginBottom: '0.5rem',
+      maxHeight: 220,
     },
     tech: {
       margin: '1rem 0',
@@ -77,7 +78,8 @@ const Project = () => {
   return (
     <section id="portfolio" className="portfolio section-bg">
       <Box className="container" sx={styles.container}>
-  <Typography variant="h2" sx={styles.tech}>Featured Project: {project.title}</Typography>
+  <Typography variant="h2" sx={styles.title}>Featured Project</Typography>
+  <Typography variant="h4" sx={styles.tech}>{project.title}</Typography>
         <Card sx={styles.card}>
           <img
             src={project.gif}
@@ -89,8 +91,15 @@ const Project = () => {
             <Typography variant="body1" sx={styles.tech}>{project.tech}</Typography>
             <Typography variant="body2" sx={styles.description}>{project.description}</Typography>
           </CardContent>
-          <CardActions sx={{ justifyContent: 'center' }}>
-            <IconButton href={project.link} title="Live Project" sx={{ color: theme.palette.secondary.main }}>
+          <CardActions sx={{ justifyContent: 'center', marginBottom: '0.5rem' }}>
+            <IconButton
+              component="a"
+              href={project.link}
+              title="Live Project"
+              sx={{ color: theme.palette.secondary.main }}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <LinkIcon />
             </IconButton>
           </CardActions>

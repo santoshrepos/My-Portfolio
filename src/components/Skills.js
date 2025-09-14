@@ -45,7 +45,13 @@ const contactInfo = {
   phone: {
     icon: "bi bi-phone",
     title: "Call",
-    text: "+91 7978753377",
+    text: (
+      <>
+        +91 7978753377
+        <br />
+        +91 8895705496
+      </>
+    ),
   },
 };
 
